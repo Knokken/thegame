@@ -20,4 +20,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SecondScene.unity
     guid: 6091e057987f188428cd21db9ded8824
+  - enabled: 1
+    path: Assets/Scenes/Blackness2.unity
+    guid: eab94d8feed9318409342371bc910066
+  - enabled: 1
+    path: Assets/Scenes/ThirdScene.unity
+    guid: 766991c2a1641a3439e9f4f757a3278b
+  - enabled: 1
+    path: Assets/Scenes/Blackness3.unity
+    guid: e6f6c10edf541dd4e9a709b7cb93f1bb
+  - enabled: 1
+    path: Assets/Scenes/FourthScene.unity
+    guid: 9ff736589dfd8f146aa822b9ab6dcd50
+  - enabled: 1
+    path: Assets/Scenes/FifthScene.unity
+    guid: a28c3a163ab276144afbfaeb1152a2fc
   m_configObjects: {}

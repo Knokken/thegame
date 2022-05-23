@@ -8,6 +8,7 @@ TagManager:
   - HeadGrab
   - Item
   - ThisThing
+  - Talk
   layers:
   - Default
   - TransparentFX

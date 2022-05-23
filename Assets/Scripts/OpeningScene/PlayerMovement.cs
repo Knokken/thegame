@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public bool canDoRun = true;
 	public bool canDoWalk = true;
+	public static bool canMove = true;
 
 	// Update is called once per frame
 	void Update()
@@ -45,6 +46,15 @@ public class PlayerMovement : MonoBehaviour
 			anim.SetBool("talkingWithCat", false);
 		}
 
+		if (DialogueManagerCat2.isActive == true)
+		{
+			Debug.Log("dialogue");
+			anim.SetBool("talkingWithCat", true);
+			anim.SetBool("walk", false);
+			anim.SetBool("run", false);
+			return;
+		}
+
 		if (TimelineManager.timelineActive == true)
         {
 			return;
@@ -57,9 +67,15 @@ public class PlayerMovement : MonoBehaviour
 			}
 		else if (TimelineManagerCat.timelineActive == true)
 		{
+			anim.SetBool("walk", false);
+			anim.SetBool("run", false);
 			return;
 		}
 		else if (TimelineManagerTookItem.timelineActive == true)
+        {
+			return;
+        }
+		else if (ItemImageTimeline.timelineActive == true)
         {
 			return;
         }
@@ -71,12 +87,14 @@ public class PlayerMovement : MonoBehaviour
 		}
 		else if (canDoWalk == true)
 			moveSpeed = 5f;
-		else
-			moveSpeed = 0f;
 
 		SetAnimationState();
 
+		if (canMove == true)
+        {
 			dirX = Input.GetAxisRaw("Horizontal") * moveSpeed;
+		}
+
 	}
 
 	void FixedUpdate()
@@ -103,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
 			anim.SetTrigger("panic");
 			anim.SetBool("inPanic", true);
+			moveSpeed = 3f;
 		}
 		if (collision.gameObject.tag == "Item" && Input.GetKey(KeyCode.E))
 		{
@@ -157,12 +176,12 @@ public class PlayerMovement : MonoBehaviour
 
 	void CheckWhereToFace()
 	{
-		if (dirX > 0)
+		if (dirX > 0 && PauseMenu.isPaused == false)
 			facingRight = true;
-		else if (dirX < 0)
+		else if (dirX < 0 && PauseMenu.isPaused == false)
 			facingRight = false;
 
-		if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))
+		if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)) && PauseMenu.isPaused == false)
 			localScale.x *= -1;
 
 		transform.localScale = localScale;
