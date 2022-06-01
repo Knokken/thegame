@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     Actor[] currentActors;
     int activeMessage = 0;
     public static bool isActive = false;
+    public static bool dialogueEnded = false;
 
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
@@ -24,6 +25,7 @@ public class DialogueManager : MonoBehaviour
         currentActors = actors;
         activeMessage = 0;
         isActive = true;
+        dialogueEnded = false;
         Debug.Log("Start! Loaded messages: " + messages.Length);
         DisplayMessage();
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
@@ -45,12 +47,14 @@ public class DialogueManager : MonoBehaviour
         if (activeMessage < currentMessages.Length)
         {
             DisplayMessage();
+            dialogueEnded = false;
         } 
         else
         {
             Debug.Log("Conversation ended.");
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             isActive = false;
+            dialogueEnded = true;
             dialogueSound.Stop();
             //anim.SetBool("conversationEnded", true);
         }
@@ -68,6 +72,7 @@ public class DialogueManager : MonoBehaviour
         {
             NextMessage();
         }
+
     }
 
 }

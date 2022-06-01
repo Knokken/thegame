@@ -18,6 +18,7 @@ public class DialogueManagerCat2 : MonoBehaviour
     public static bool isActive = false;
     public static bool cannotGo = true;
     public static bool girlMoves = false;
+    public static bool dialogueEnded = false;
 
     public void OpenDialogue(Message[] messages, Actor[] actors)
     {
@@ -57,6 +58,7 @@ public class DialogueManagerCat2 : MonoBehaviour
             dialogueSound.Stop();
             cannotGo = false;
             girlMoves = true;
+            dialogueEnded = true;
         }
     }
 

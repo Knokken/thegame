@@ -4,37 +4,39 @@ using System.Collections;
 public class PlayerMovementSecond : MonoBehaviour
 {
 
-    public float speed;
-    public float jump;
-    public GameObject rayOrigin;
-    public float rayCheckDistance;
-    Rigidbody2D rb;
-    [SerializeField] private AudioSource walking;
-    //[SerializeField] private AudioSource running;
+	Animator anim;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
+	[SerializeField] private AudioSource footsteps;
+	[SerializeField] private AudioSource footsteps2;
 
-    }
+	// Use this for initialization
+	void Start()
+	{
+		anim = GetComponent<Animator>();
+	}
 
-    void FixedUpdate()
-    {
-        float x = Input.GetAxis("Horizontal");
-        if (Input.GetAxis("Jump") > 0)
+	// Update is called once per frame
+	void Update()
+	{
+		if(DialogueManager.dialogueEnded == true)
         {
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin.transform.position, Vector2.down, rayCheckDistance);
-            if (hit.collider != null)
-            {
-                rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
-            }
+			anim.SetTrigger("stopHoldingHands");
         }
-        rb.velocity = new Vector3(x * speed, rb.velocity.y, 0);
 
-    }
+	}
 
-    void Walking()
-    {
-        walking.Play();
-    }
+	void FixedUpdate()
+	{
+		
+	}
+
+	void Footsteps()
+	{
+		footsteps.Play();
+	}
+
+	void Footsteps2()
+	{
+		footsteps2.Play();
+	}
 }

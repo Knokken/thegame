@@ -25,7 +25,6 @@ public class ItemImageTimeline : MonoBehaviour
             if (director.state == PlayState.Playing)
             {
                 timelineActive = true;
-                return;
             }
             else if (director.state != PlayState.Playing)
             {

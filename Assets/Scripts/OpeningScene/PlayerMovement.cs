@@ -79,6 +79,10 @@ public class PlayerMovement : MonoBehaviour
         {
 			return;
         }
+		else if (WalkingTrigger.timelineActive == true)
+        {
+			return;
+        }
 
 
 		if (canDoRun == true && Input.GetKey(KeyCode.LeftShift))
