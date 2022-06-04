@@ -1469,6 +1469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248549325}
   - component: {fileID: 248549326}
+  - component: {fileID: 248549327}
   m_Layer: 0
   m_Name: LeftEnd
   m_TagString: Untagged
@@ -1516,6 +1517,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8892365, y: 12.255798}
   m_EdgeRadius: 0
+--- !u!114 &248549327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248549324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f98bd59fc69db499fb00df5e5d9857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 2121246876}
 --- !u!1 &253575264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,7 +1587,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0926924, y: -0.060832977}
+  m_Offset: {x: -0.9504452, y: -0.060832977}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1584,7 +1598,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4426174, y: 6.2803335}
+  m_Size: {x: 1.7271118, y: 6.2803335}
   m_EdgeRadius: 0
 --- !u!1 &307457643
 GameObject:
@@ -1976,6 +1990,7 @@ GameObject:
   - component: {fileID: 472633942}
   - component: {fileID: 472633941}
   - component: {fileID: 472633940}
+  - component: {fileID: 472633944}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -2080,6 +2095,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &472633944
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472633939}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.79658484, y: -0.56898975}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.96, y: 5.24}
+    newSize: {x: 2.96, y: 5.23}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.5531697, y: 6.3779793}
+  m_EdgeRadius: 0
 --- !u!1 &485677225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,10 +2180,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messagesCat2:
+  - actorID: 1
+    message: you've found another one! hooray!
+  - actorID: 1
+    message: what is it?
   - actorID: 0
-    message: yo fuck off
+    message: it's the pages from my old journal
   - actorID: 0
-    message: lmao
+    message: they all covered in blood...
+  - actorID: 1
+    message: gross
+  - actorID: 0
+    message: shut it
+  - actorID: 0
+    message: ...
+  - actorID: 0
+    message: did i really write this..?
+  - actorID: 1
+    message: what's it say?
+  - actorID: 0
+    message: ...
+  - actorID: 1
+    message: ...
+  - actorID: 1
+    message: one more item to go
   actorsCat2:
   - sprite: {fileID: 21300000, guid: 6086e75887297054f8e0aadcb54880fa, type: 3}
   - sprite: {fileID: 21300000, guid: 77cbdea72d07f774b85f934d1355b6f9, type: 3}
@@ -5743,7 +5804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1747153647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5757,7 +5818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGlobal: 1
-  priority: 0
+  priority: 1
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: fca8cf0cf2ddfe442b5703b70c72b1b6, type: 2}
@@ -6343,7 +6404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5732718492734086409, guid: 88738837a17b38449a5f506cacd1db1b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5732718493991266366, guid: 88738837a17b38449a5f506cacd1db1b, type: 3}
       propertyPath: m_Camera
@@ -6351,3 +6412,8 @@ PrefabInstance:
       objectReference: {fileID: 1299029146}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88738837a17b38449a5f506cacd1db1b, type: 3}
+--- !u!95 &2121246876 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5732718493991266337, guid: 88738837a17b38449a5f506cacd1db1b, type: 3}
+  m_PrefabInstance: {fileID: 2121246875}
+  m_PrefabAsset: {fileID: 0}

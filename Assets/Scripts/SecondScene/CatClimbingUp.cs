@@ -15,7 +15,15 @@ public class CatClimbingUp : MonoBehaviour
         anim.SetTrigger("talk");
     }
 
-    private void Update()
+    /*private void Update()
+    {
+        if (PickUpItem.isDestroyed == true)
+        {
+            StartCoroutine(WaitForTalk());
+        }
+    }*/
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (PickUpItem.isDestroyed == true)
         {

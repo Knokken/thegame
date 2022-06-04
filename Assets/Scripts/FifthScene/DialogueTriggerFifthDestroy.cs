@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueTriggerFifthDestroy : MonoBehaviour
 {
-    public DialogueTriggerCat2 trigger;
+    public DialogueTriggerFigure trigger;
     //public static bool stopMoving = false;
 
     private void Start()
@@ -31,7 +31,7 @@ public class DialogueTriggerFifthDestroy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true && WalkingTrigger.timelineActive == false)
         {
-            trigger.StartDialogueCat2();
+            trigger.StartDialogueFigure();
             StartCoroutine(WaitForDialogue());
             return;
         }

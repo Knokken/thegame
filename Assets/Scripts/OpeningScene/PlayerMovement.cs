@@ -55,6 +55,15 @@ public class PlayerMovement : MonoBehaviour
 			return;
 		}
 
+		if (DialogueManagerFigure.isActive == true)
+		{
+			Debug.Log("dialogue");
+			anim.SetBool("talkingWithCat", true);
+			anim.SetBool("walk", false);
+			anim.SetBool("run", false);
+			return;
+		}
+
 		if (TimelineManager.timelineActive == true)
         {
 			return;

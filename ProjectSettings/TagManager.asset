@@ -9,6 +9,7 @@ TagManager:
   - Item
   - ThisThing
   - Talk
+  - WalkHoldingHands
   layers:
   - Default
   - TransparentFX

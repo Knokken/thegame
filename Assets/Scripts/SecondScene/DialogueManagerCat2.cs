@@ -74,5 +74,10 @@ public class DialogueManagerCat2 : MonoBehaviour
         {
             NextMessage();
         }
+
+        if (dialogueEnded == true)
+        {
+            dialogueEnded = false;
+        }
     }
 }

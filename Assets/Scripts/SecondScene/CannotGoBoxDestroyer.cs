@@ -13,7 +13,7 @@ public class CannotGoBoxDestroyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DialogueManagerCat2.cannotGo == false)
+        if (CatDialogueDestroyFrom2nd.cannotGo == false)
         {
             Destroy(gameObject.GetComponent<BoxCollider2D>());
         }
