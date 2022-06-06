@@ -18,7 +18,6 @@ public class PlayerMovementFigure : MonoBehaviour
 		localScale = transform.localScale;
 	}
 
-	public bool canDoRun = false;
 	public bool canDoWalk = false;
 	public static bool canMove = false;
 	private bool thisThing = false;
@@ -34,7 +33,6 @@ public class PlayerMovementFigure : MonoBehaviour
 
 		if (DialogueManagerFigure.dialogueEnded == false)
 		{
-			canDoRun = false;
 			canDoWalk = false;
 			canMove = false;
 			return;
@@ -48,15 +46,17 @@ public class PlayerMovementFigure : MonoBehaviour
 		else if (DialogueManagerFigure.dialogueEnded == true && thisThing == true)
         {
 			anim.SetBool("come", false);
-			canDoRun = true;
 			canDoWalk = true;
 			canMove = true;
 		}
-		
-		if (canDoRun == true && Input.GetKey(KeyCode.LeftShift))
+
+		if (TimelineManagerHoldHands.timelineActive == true)
 		{
-			moveSpeed = 7f;
+			canDoWalk = false;
+			canMove = false;
+			return;
 		}
+
 		else if (canDoWalk == true)
 			moveSpeed = 5f;
 
@@ -79,29 +79,10 @@ public class PlayerMovementFigure : MonoBehaviour
 		CheckWhereToFace();
 	}
 
-	private void OnTriggerStay2D(Collider2D collision)
-	{
-
-		if (collision.gameObject.tag == "Walk")
-		{
-			canDoRun = false;
-		}
-	}
-
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		if (collision.gameObject.tag == "Walk")
-		{
-			moveSpeed = 7f;
-			canDoRun = true;
-		}
-	}
-
 	void SetAnimationState()
 	{
 		if (dirX == 0)
 		{
-			anim.SetBool("run", false);
 			anim.SetBool("walk", false);
 		}
 
@@ -110,15 +91,6 @@ public class PlayerMovementFigure : MonoBehaviour
 			anim.SetBool("walk", true);
 		}
 
-		if (Mathf.Abs(dirX) == 7 && rb.velocity.y == 0)
-		{
-			anim.SetBool("run", true);
-
-		}
-		else
-		{
-			anim.SetBool("run", false);
-		}
 	}
 
 	void CheckWhereToFace()
